@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nike Sneakers | Contacto</title>
+    <meta name="description" content="Contacta con el equipo de Nike para resolver dudas sobre productos, pedidos o compartir tu experiencia.">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -13,23 +15,25 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="img/logo.jpg" alt="Nike Logo">
-                <span>Nike</span>
             </a>
-            <ul class="nav-menu">
+            <nav aria-label="Navegación principal">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="vision.html">Visión y Misión</a></li>
                 <li><a href="producto.html">Producto</a></li>
                 <li><a href="contacto.html" class="active">Contacto</a></li>
             </ul>
-            <div class="menu-toggle">
+            </nav>
+            <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
     <!-- PAGE HERO -->
+    <main>
     <section class="page-hero">
         <h1>Contacto</h1>
     </section>
@@ -92,16 +96,17 @@
                     <div>
                         <h4>Redes Sociales</h4>
                         <div class="social-links" style="margin-top:10px;">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/nike" aria-label="Nike en Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/nike/" aria-label="Nike en Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://x.com/Nike" aria-label="Nike en X" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/user/nike" aria-label="Nike en YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -110,10 +115,10 @@
                 <h4>Nike</h4>
                 <p>Inspirando a atletas de todo el mundo desde 1964. Just Do It.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/nike" aria-label="Nike en Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/nike/" aria-label="Nike en Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://x.com/Nike" aria-label="Nike en X" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/user/nike" aria-label="Nike en YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -144,7 +149,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Nike, Inc. Todos los derechos reservados. | Página demo educativa</p>
+            <p>&copy; 2026 Nike, Inc. Todos los derechos reservados. | Diseñado MaxSystem</p>
         </div>
     </footer>
 
