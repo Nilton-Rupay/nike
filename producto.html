@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nike Sneakers | Productos</title>
+    <meta name="description" content="Explora zapatillas Nike para running, basketball, lifestyle y entrenamiento, con modelos destacados de la colección.">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -13,23 +15,25 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="img/logo.jpg" alt="Nike Logo">
-                <span>Nike</span>
             </a>
-            <ul class="nav-menu">
+            <nav aria-label="Navegación principal">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="vision.html">Visión y Misión</a></li>
                 <li><a href="producto.html" class="active">Producto</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
-            <div class="menu-toggle">
+            </nav>
+            <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
     <!-- PAGE HERO -->
+    <main>
     <section class="page-hero">
         <h1>Nuestros Productos</h1>
     </section>
@@ -44,61 +48,62 @@
 
         <div class="products-grid">
             <div class="product-card">
-                <img src="img/product1.jpg" alt="Nike Air Force 1">
+                <img src="img/product1.jpg" alt="Nike Air Force 1" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike Air Force 1 '07</h3>
                     <p class="price">$110.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Lifestyle · Blanco</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="img/product2.jpg" alt="Nike Air Max 90">
+                <img src="img/product2.jpg" alt="Nike Air Max 90" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike Air Max 90</h3>
                     <p class="price">$130.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Running · Multicolor</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="img/product3.jpg" alt="Nike Dunk Low">
+                <img src="img/product3.jpg" alt="Nike Dunk Low" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike Dunk Low Retro</h3>
                     <p class="price">$100.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Basketball · Negro/Blanco</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="img/product4.jpg" alt="Nike Pegasus 40">
+                <img src="img/product4.jpg" alt="Nike Pegasus 40" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike Pegasus 40</h3>
                     <p class="price">$130.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Running · Azul</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="img/product5.jpg" alt="Nike Blazer Mid">
+                <img src="img/product5.jpg" alt="Nike Blazer Mid" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike Blazer Mid '77</h3>
                     <p class="price">$100.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Lifestyle · Vintage</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="img/product6.jpg" alt="Nike React Infinity">
+                <img src="img/product6.jpg" alt="Nike React Infinity" loading="lazy" decoding="async">
                 <div class="product-details">
                     <h3>Nike React Infinity Run</h3>
                     <p class="price">$160.00</p>
                     <p style="color:#757575;font-size:0.9rem;margin-bottom:12px;">Training · Gris</p>
-                    <a href="#" class="btn">Ver Detalle</a>
+                    <a href="contacto.html" class="btn">Consultar producto</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -107,10 +112,10 @@
                 <h4>Nike</h4>
                 <p>Inspirando a atletas de todo el mundo desde 1964. Just Do It.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/nike" aria-label="Nike en Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/nike/" aria-label="Nike en Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://x.com/Nike" aria-label="Nike en X" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/user/nike" aria-label="Nike en YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -141,10 +146,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Nike, Inc. Todos los derechos reservados. | Página demo educativa</p>
+            <p>&copy; 2026 Nike, Inc. Todos los derechos reservados. | Diseñado MaxSystem</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
 </html>
+
