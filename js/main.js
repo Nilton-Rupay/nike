@@ -3,20 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Header scroll effect
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
+        if (!header) return;
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 
     // Mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    if (menuToggle) {
+    if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Abrir menú');
+            });
         });
     }
 
@@ -34,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentSlide);
+            if (i === currentSlide) {
+                dot.setAttribute('aria-current', 'true');
+            } else {
+                dot.removeAttribute('aria-current');
+            }
         });
     }
 
@@ -47,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
     // Auto slide
-    if (slides) {
+    if (slides && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         setInterval(() => goToSlide(currentSlide + 1), 5000);
     }
 
@@ -87,21 +104,27 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Stagger children if needed
-                const delay = entry.target.dataset.delay || 0;
-                entry.target.style.transitionDelay = `${delay}ms`;
-            }
-        });
-    }, observerOptions);
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.transitionDelay = `${delay}ms`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-    document.querySelectorAll('.feature-card, .product-card, .vm-card').forEach((el, i) => {
-        el.dataset.delay = i * 100;
-        observer.observe(el);
-    });
+        document.querySelectorAll('.feature-card, .product-card, .vm-card').forEach((el, i) => {
+            el.dataset.delay = i * 100;
+            observer.observe(el);
+        });
+    } else {
+        document.querySelectorAll('.feature-card, .product-card, .vm-card').forEach(el => {
+            el.classList.add('visible');
+        });
+    }
 
     // Contact form simple validation
     const contactForm = document.querySelector('.contact-form form');
@@ -125,3 +148,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
